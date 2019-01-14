@@ -76,9 +76,7 @@ render() {
       
       return (
         <div className="App">
-          <header className="App-header">
-            <h1> Ethereum and IPFS with Create React App</h1>
-          </header>
+          
           
           <hr />
 <Grid>
