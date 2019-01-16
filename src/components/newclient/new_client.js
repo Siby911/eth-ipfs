@@ -10,7 +10,7 @@ import './css/bootstrap.css';
 import './css/main.css';
 import './css/bootstrap.css.map';
 import './css/util.css';*/
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 
 //import './js/bootstrap.js';
 //import './js/jquery.main.js';
@@ -41,7 +41,7 @@ class new_client extends Component {
                     <center><div className="wrap-contact3">
                         <form className="contact3-form validate-form">
                             <h3 className="contact3-form-title">
-                                New Client
+                                New Client 
                             </h3>
 
                             <div className="wrap-input3 validate-input" data-validate="Name is required">

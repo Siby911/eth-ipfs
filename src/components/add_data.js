@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import logo from ‘./logo.svg’;
 import '../../src/App.css';
+//import '../css/add_data.css';
 import web3 from '../web3';
 import ipfs from '../ipfs';
 import storehash from '../storehash';
@@ -8,6 +9,10 @@ import { Button} from 'react-bootstrap';
 import { Form} from 'react-bootstrap';
 import { Table} from 'react-bootstrap';
 import { Grid} from 'react-bootstrap';
+import '../css/bootstrap.css';
+import '../css/main.css';
+import '../css/util.css';
+import '../css/all.css';
 
 class Adddata  extends Component {
  
@@ -75,7 +80,7 @@ onSubmit = async (event) => {
 render() {
       
       return (
-        <div className="App">
+        <div className="add_data" >
           
           
           <hr />
@@ -127,6 +132,7 @@ render() {
                 </tbody>
             </Table>
         </Grid>
+
      </div>
       );
     } 
