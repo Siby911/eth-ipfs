@@ -30,7 +30,8 @@ import home from './components/home/home';
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import add_client from './components/add_data';
-
+import login from './components/login';
+import signup from './components/signup';
 class App extends Component {
  
     
@@ -42,7 +43,8 @@ render() {
           <Switch>
           <Route each path="/new_client" component={new_client}></Route>
           <Route each path="/add_client" component={add_client}></Route>
-          
+          <Route each path="/login" component={login}></Route>
+          <Route each path="/signup" component={signup}></Route>
             <Route each path="/" component={home}></Route>
             
           </Switch>
