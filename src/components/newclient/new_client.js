@@ -15,16 +15,18 @@ import './css/util.css';*/
 //import './js/bootstrap.js';
 //import './js/jquery.main.js';
 //import './js/jquery-1.11.2.min.js';
-
+import Navbar from "../navbar/navbar";
 
 class new_client extends Component {
   render() {
     return (
       <div className="new_client">
+      
         <div id="wrapper">
                 <header id="header">
                     <div className="container">
                         <div className="logo"><a href="home.html"><img src={require('../../images/logo.png')} alt="Sports"/></a></div>
+                        <Navbar/>
                         {/* <nav id="nav">
                             <div className="nav-drop">
                                 <ul>

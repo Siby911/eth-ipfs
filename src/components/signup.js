@@ -3,9 +3,23 @@ import React, { Component } from 'react';
 
 //import { SignUpLink } from './SignUp';
 import firebase from 'firebase';
+import { createHashHistory} from 'history';
+import Navbar from './navbar/navbar';
+//import './js/bootstrap.js';
+//import './js/jquery.main.js';
+//import './js/jquery-1.11.2.min.js';
+export const history=createHashHistory();
 const byPropKey = (propertyName, value) => () => ({
     [propertyName]: value,
   });
+  var f=1; 
+  function fever() {
+      f=1;
+  }
+  function fever2(){
+    //if(f==1)
+    history.goBack();
+  }
 class signup extends Component{
     constructor(props)
     {
@@ -22,13 +36,31 @@ class signup extends Component{
             e.preventDefault();
             console.log(this.state.email+" "+this.state.password);
             //event.preventDefault();
-            firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+            var errorCode="lol";f=0; var a;
+            firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(function(result){
+              
+            }).catch(function(error) {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
+                a="a";
+                  console.log(errorCode[0].localeCompare(a));
+                  if(errorCode[0].localeCompare(a)==0)
+                    fever(); 
+                //console.log(error);
                 // ...
         
               });
+            //   if(!this.state.error){
+            //     console.log("phew!!");
+            //     //history.pop();
+            //     //history.replace('/add_data');
+            //     history.goBack();
+                
+            //     console.log("nice");
+            //    // history.goForward();
+            //     //history.push('/home.html/add_data');
+            // }
         }
     componentWillMount()
     {
@@ -44,8 +76,15 @@ class signup extends Component{
     }
       
   render() {
-    return (
+  //   function Click() {
+  
 
+  //     console.log("something");
+  //     history.goBack();
+  // }
+    return (
+      <div>
+        <Navbar/>
       <form onSubmit={this.onSignIn}>
         <div class="signincontainer col-centered">
           <h1 class="title">Sign Up </h1>
@@ -68,10 +107,17 @@ class signup extends Component{
           />
         </div>
         <div class="button login col-centered">
+        <input type="submit" value="submit"/>
+{/*         
          <button ><span>GO</span> <i class="fa fa-check"></i></button>
+       */}
       </div>
 
       </form>
+
+      {/* <button onClick={function(){fever2()}}><span>Login</span> <i class="fa fa-check"></i></button>
+       */}
+      </div>
 
     );
   }

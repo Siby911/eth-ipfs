@@ -6,6 +6,7 @@
     "bootstrap": "^4.0.0-alpha.6",
     "firebase": "^5.8.1",
     "fs-extra": "^7.0.1",
+    "history": "^4.7.2",
     "ipfs-api": "^26.1.2",
     "react": "^16.7.0",
     "react-bootstrap": "^0.32.1",

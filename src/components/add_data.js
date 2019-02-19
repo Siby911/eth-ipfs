@@ -13,7 +13,9 @@ import '../css/bootstrap.css';
 import '../css/main.css';
 import '../css/util.css';
 import '../css/all.css';
+import Navbar from './navbar/navbar';
 
+import firebase from 'firebase';
 class Adddata  extends Component {
  
     state = {
@@ -55,6 +57,18 @@ await this.setState({blockNumber: this.state.txReceipt.blockNumber});
         console.log(error);
       } 
   } 
+  componentWillMount()
+    {
+        const config={
+            apiKey: "AIzaSyBMGzaJI04frjjWcDQ3FH4TZC79gBKXHks",
+            authDomain: "car-docs.firebaseapp.com",
+            databaseURL: "https://car-docs.firebaseio.com",
+            projectId: "car-docs",
+            storageBucket: "car-docs.appspot.com",
+            messagingSenderId: "1504690872"
+        };
+        firebase.initializeApp(config);
+    }
 onSubmit = async (event) => {
       event.preventDefault();
      
@@ -68,20 +82,32 @@ onSubmit = async (event) => {
       await ipfs.add(this.state.buffer, (err, ipfsHash) => {
         console.log(err,ipfsHash);
         this.setState({ ipfsHash:ipfsHash[0].hash });
-        
+        console.log(this.state.ipfsHash);
+
+        const itemsRef = firebase.database().ref('transaction_values');
+        console.log(this.state);
+        itemsRef.push(this.state);
+
+
         storehash.methods.sendHash(this.state.ipfsHash).send({
           from: accounts[0] 
         }, (error, transactionHash) => {
           console.log(transactionHash);
           this.setState({transactionHash});
         }); 
-      })  
+      }) 
+      
+      
+      
+     
+
+
     }; 
 render() {
       
       return (
         <div className="add_data" >
-          
+          <Navbar/>
           
           <hr />
 <Grid>

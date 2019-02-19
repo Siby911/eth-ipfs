@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
-/*import './App.css';
-import './css/all.css';
-import './css/all.css.map';
-import './css/bootstrap.css';
-import './css/main.css';
-import './css/bootstrap.css.map';
-import './css/util.css';*/
 import {Link} from 'react-router-dom';
-
+import { createHashHistory} from 'history';
+import Navbar from '../navbar/navbar';
 //import './js/bootstrap.js';
 //import './js/jquery.main.js';
 //import './js/jquery-1.11.2.min.js';
-
+export const history=createHashHistory();
 
 class home extends Component {
     render() {
+      function Click() {
+  
+
+        console.log("something");
+        history.goBack();
+    }
       return (
 <div id="wrapper">
           <header id="header">
@@ -30,7 +29,8 @@ class home extends Component {
                   <a href="#" className="nav-opener"><span></span></a>
                 </div>
                 <div className="container">
-                
+                <Navbar/>
+
                         {/* <nav id="nav">
                             <div className="nav-drop">
                                 <ul>
@@ -63,7 +63,10 @@ class home extends Component {
                 </div>
                 <p className="tagline">A secure way to access and store documents!</p>
                 <span className="info">Get added now</span>
+                
+
               </div>
+              
             </div>
              <img src={require('../../images/img-bg-01.jpg')} alt="" className="bg-stretch"/> 
           </section>

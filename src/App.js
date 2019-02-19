@@ -18,7 +18,7 @@ import './css/bootstrap.css';
 import './css/main.css';
 import './css/bootstrap.css.map';
 import './css/util.css';
-import {Link,BrowserRouter} from 'react-router-dom';
+import {Link,BrowserRouter,withRouter} from 'react-router-dom';
 //import { Provider } from "./context";
 //import './js/bootstrap.js';
 //import './js/jquery.main.js';
@@ -28,10 +28,11 @@ import new_client from "./components/newclient/new_client";
 
 import home from './components/home/home';
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-
+//import {Link,withRouter} from 'react-router-dom';
 import add_client from './components/add_data';
 import login from './components/login';
 import signup from './components/signup';
+import Navbar from "./components/navbar/navbar";
 class App extends Component {
  
     
@@ -39,7 +40,7 @@ render() {
       
       return (
         <div className="App">
-          <BrowserRouter>
+          
           <Switch>
           <Route each path="/new_client" component={new_client}></Route>
           <Route each path="/add_client" component={add_client}></Route>
@@ -50,11 +51,11 @@ render() {
           </Switch>
 
         
-        </BrowserRouter>
+        
           
           
      </div>
       );
     } 
 } 
-export default App;
+export default withRouter(App);
